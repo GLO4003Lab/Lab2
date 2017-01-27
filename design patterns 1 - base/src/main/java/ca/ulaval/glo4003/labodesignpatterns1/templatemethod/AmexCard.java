@@ -3,18 +3,10 @@ package ca.ulaval.glo4003.labodesignpatterns1.templatemethod;
 import java.time.LocalDate;
 
 public class AmexCard extends CreditCard {
-	private String number;
-	private int expirationYYYY;
-	private int expirationMM;
-	private int cvv;
-
+	
 	public AmexCard(String name, String number, int expirationMM,
 			int expirationYYYY, int cvv) {
-		super(name);
-		this.number = number;
-		this.expirationMM = expirationMM;
-		this.expirationYYYY = expirationYYYY;
-		this.cvv = cvv;
+		super(name,  number,  expirationMM, expirationYYYY,  cvv);
 	}
 
 	@Override

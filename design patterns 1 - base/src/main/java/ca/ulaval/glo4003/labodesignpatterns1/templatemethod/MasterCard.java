@@ -6,20 +6,13 @@ import ca.ulaval.glo4003.labodesignpatterns1.tools.CreditStandingValidationClien
 import ca.ulaval.glo4003.labodesignpatterns1.tools.CreditStandingValidationClient.CreditCards;
 
 public class MasterCard extends CreditCard {
-	private String number;
-	private int expirationYYYY;
-	private int expirationMM;
-	private int cvv;
-	private CreditStandingValidationClient creditStandingValidationClient;
 
+	private final CreditStandingValidationClient creditStandingValidationClient;
+	
 	public MasterCard(String name, String number, int expirationMM,
 			int expirationYYYY, int cvv,
 			CreditStandingValidationClient creditStandingValidationClient) {
-		super(name);
-		this.number = number;
-		this.expirationMM = expirationMM;
-		this.expirationYYYY = expirationYYYY;
-		this.cvv = cvv;
+		super(name,  number,  expirationMM, expirationYYYY,  cvv);
 		this.creditStandingValidationClient = creditStandingValidationClient;
 	}
 
