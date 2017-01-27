@@ -3,7 +3,7 @@ package ca.ulaval.glo4003.labodesignpatterns1.prototype;
 import java.awt.Point;
 import java.util.Arrays;
 
-public class Polygon2D {
+public class Polygon2D{
 
 	Point[] points = new Point[12];
 	private int x = 0;
@@ -13,6 +13,12 @@ public class Polygon2D {
 		this.x = x;
 		this.y = y;
 		evaluateCoordinatesOfPoints();
+	}
+	
+	private Polygon2D(int x, int y,Point[] points){
+		this.x = x;
+		this.y = y;
+		this.points = points;
 	}
 
 	private void evaluateCoordinatesOfPoints() {
@@ -36,7 +42,6 @@ public class Polygon2D {
 				+ Arrays.toString(points);
 	}
 
-	@SuppressWarnings("unused")
 	private void translate(int newX, int newY) {
 		for (int i = 0; i < points.length; i++) {
 			points[i] = new Point(points[i].x - x + newX, points[i].y - y
@@ -46,4 +51,12 @@ public class Polygon2D {
 		y = newY;
 	}
 
+	protected Polygon2D clone(int x, int y){
+		
+		Polygon2D polygon2d = new Polygon2D(this.x, this.y,this.points);
+		polygon2d.translate(x, y);
+		return polygon2d;
+	}
+	
+	
 }

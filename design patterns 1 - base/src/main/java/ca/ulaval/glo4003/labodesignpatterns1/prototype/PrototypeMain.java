@@ -10,10 +10,10 @@ public class PrototypeMain {
 		System.out.println("Creating 5 polygons");
 		Stopwatch watch = Stopwatch.createStarted();
 		Polygon2D polygon1 = new Polygon2D(1, 1);
-		Polygon2D polygon2 = new Polygon2D(2, 2);
-		Polygon2D polygon3 = new Polygon2D(3, -3);
-		Polygon2D polygon4 = new Polygon2D(4, 4);
-		Polygon2D polygon5 = new Polygon2D(5, -5);
+		Polygon2D polygon2 = polygon1.clone(2, 2);
+		Polygon2D polygon3 = polygon1.clone(3, -3);
+		Polygon2D polygon4 = polygon1.clone(4, 4);
+		Polygon2D polygon5 = polygon1.clone(5, -5);
 
 		watch.stop();
 		System.out.println(String.format("Created 5 polytons in %s seconds",

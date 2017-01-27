@@ -1,18 +1,52 @@
 package ca.ulaval.glo4003.labodesignpatterns1.templatemethod;
 
-public interface CreditCard {
+public abstract class CreditCard {
+	protected String name;
+	
+	protected CreditCard(String name){
+		this.name = name;
+	}
 
-	public boolean isExpirationDateValid();
+	protected abstract boolean isExpirationDateValid();
 
-	public boolean hasValidChars();
+	protected abstract boolean hasValidChars();
 
-	public boolean isValidPrefix();
+	protected abstract boolean isValidPrefix();
 
-	public boolean isNumberOfDigitsValid();
+	protected abstract boolean isNumberOfDigitsValid();
 
-	public boolean isAccountInGoodStanding();
+	protected abstract boolean isAccountInGoodStanding();
 
-	public boolean isCvvValid();
+	protected abstract boolean isCvvValid();
 
-	public boolean isValid();
+	public boolean isValid(){
+		if (!isExpirationDateValid()) {
+			System.out.println(name + ": Invalid expiration date");
+			return false;
+		}
+		if (!hasValidChars()) {
+			System.out.println(name + ": Invalid characters in card number");
+			return false;
+		}
+		if (!isValidPrefix()) {
+			System.out.println(name + ": Invalid card prefix");
+			return false;
+		}
+		if (!isNumberOfDigitsValid()) {
+			System.out.println(name
+					+ ": Invalid number of digits in card number");
+			return false;
+		}
+		if (!isAccountInGoodStanding()) {
+			System.out.println(name + ": Account is not in good standing");
+			return false;
+		}
+		if (!isCvvValid()) {
+			System.out.println(name + ": Invalid CVV number");
+			return false;
+		}
+
+		System.out.println(name + ": Credit card is valid.");
+		return true;
+	}
 }
