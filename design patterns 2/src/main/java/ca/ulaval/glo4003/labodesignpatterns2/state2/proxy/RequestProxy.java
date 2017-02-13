@@ -6,7 +6,7 @@ public class RequestProxy {
 	private ProxyState state;
 
 	public RequestProxy() {
-		// state = .... (état initial)
+		state = new ProxyNormalState();
 	}
 
 	public ProxyResponse makeRequest(String url) {
